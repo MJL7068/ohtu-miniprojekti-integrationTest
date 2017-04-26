@@ -35,7 +35,7 @@ Feature: user can remove a reference from the database
 
 5 Scenarios (?[32m5 passed?[0m)
 16 Steps (?[32m16 passed?[0m)
-0m31.919s
+0m31.713s
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
