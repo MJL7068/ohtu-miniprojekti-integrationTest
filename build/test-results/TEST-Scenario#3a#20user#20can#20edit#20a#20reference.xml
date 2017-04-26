@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Scenario: user can edit a reference" tests="5" skipped="0" failures="0" errors="0" timestamp="2017-04-26T07:41:21" hostname="fuxi16" time="0.823">
+  <properties/>
+  <testcase name="Given user is in the main page and there is a reference with the title &quot;testireferenssi&quot; in the database" classname="Scenario: user can edit a reference" time="0.0"/>
+  <testcase name="When button with the text &quot;Muokkaa&quot; next to the reference with the title &quot;testireferenssi&quot; is pressed" classname="Scenario: user can edit a reference" time="0.001"/>
+  <testcase name="When title &quot;testireferenssiEDIT&quot; is entered in the edit-form" classname="Scenario: user can edit a reference" time="0.0"/>
+  <testcase name="Then there is a reference with the title &quot;testireferenssiEDIT&quot; in the database" classname="Scenario: user can edit a reference" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: user can edit a reference" time="5.409"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.29.461571 (8a88bbe0775e2a23afda0ceaf2ef7ee74e822cc5) on port 6857
+Only local connections are allowed.
+]]></system-err>
+</testsuite>

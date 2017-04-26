@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Scenario: user can add an inproceedings reference" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-04-26T07:41:12" hostname="fuxi16" time="5.322">
+  <properties/>
+  <testcase name="Given uusi viite is selected" classname="Scenario: user can add an inproceedings reference" time="0.0"/>
+  <testcase name="When &quot;inproceedings&quot; is selected and title &quot;A practical approach to integrating active and collaborative learning into the introductory computer science curriculum&quot; and author &quot;Grissom, Scott&quot; and booktitle &quot;Proceedings of the seventh annual consortium on Computing in small colleges midwestern conference&quot; and year &quot;2000&quot; and pages &quot;95-100&quot; and publisher &quot;Consortium for Computing Sciences in Colleges&quot; are entered" classname="Scenario: user can add an inproceedings reference" time="0.001"/>
+  <testcase name="Then the reference is added and user is returned to the front page" classname="Scenario: user can add an inproceedings reference" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: user can add an inproceedings reference" time="6.985"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.29.461571 (8a88bbe0775e2a23afda0ceaf2ef7ee74e822cc5) on port 6235
+Only local connections are allowed.
+]]></system-err>
+</testsuite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Scenario: user can add an article reference" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-04-26T07:40:59" hostname="fuxi16" time="4.816">
+  <properties/>
+  <testcase name="Given uusi viite is selected" classname="Scenario: user can add an article reference" time="0.0"/>
+  <testcase name="When &quot;article&quot; is selected and title &quot;Infusing active learning into introductory programming courses&quot; and author &quot;Whittington, Keith J.&quot; and journal &quot;J. Comput. Small Coll.&quot; and year &quot;2004&quot; and volume &quot;19&quot; and number &quot;5&quot; are entered" classname="Scenario: user can add an article reference" time="0.0"/>
+  <testcase name="Then the reference is added and user is returned to the front page" classname="Scenario: user can add an article reference" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: user can add an article reference" time="7.67"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.29.461571 (8a88bbe0775e2a23afda0ceaf2ef7ee74e822cc5) on port 18614
+Only local connections are allowed.
+]]></system-err>
+</testsuite>
