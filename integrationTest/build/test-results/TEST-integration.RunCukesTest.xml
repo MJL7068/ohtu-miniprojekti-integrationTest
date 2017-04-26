@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="integration.RunCukesTest" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="fuxi16" time="0.0">
+  <properties/>
+  <system-out><![CDATA[Feature: User can add an article reference to the database
+
+  Scenario: user can add an article reference                                                                                                                                                                                                ?[90m# integration/addArticleReference.feature:3?[0m
+    ?[32mGiven ?[0m?[32muusi viite is selected?[0m                                                                                                                                                                                                             ?[90m# Stepdefs.uusi_viite_is_selected()?[0m
+    ?[32mWhen ?[0m?[32m"?[0m?[32m?[1marticle?[0m?[32m" is selected and title "?[0m?[32m?[1mInfusing active learning into introductory programming courses?[0m?[32m" and author "?[0m?[32m?[1mWhittington, Keith J.?[0m?[32m" and journal "?[0m?[32m?[1mJ. Comput. Small Coll.?[0m?[32m" and year "?[0m?[32m?[1m2004?[0m?[32m" and volume "?[0m?[32m?[1m19?[0m?[32m" and number "?[0m?[32m?[1m5?[0m?[32m" are entered?[0m ?[90m# Stepdefs.article_is_selected_and_title_and_author_and_journal_and_year_and_volume_and_number_are_entered(String,String,String,String,String,String,String)?[0m
+    ?[32mThen ?[0m?[32mthe reference is added and user is returned to the front page?[0m                                                                                                                                                                       ?[90m# Stepdefs.the_reference_is_added_and_user_is_returned_to_the_front_page()?[0m
+Feature: User can add a book reference to the database
+
+  Scenario: user can add a book reference                                                                                                                                                                                      ?[90m# integration/addBookReference.feature:3?[0m
+    ?[32mGiven ?[0m?[32muusi viite is selected?[0m                                                                                                                                                                                               ?[90m# Stepdefs.uusi_viite_is_selected()?[0m
+    ?[32mWhen ?[0m?[32m"?[0m?[32m?[1mbook?[0m?[32m" is selected and title "?[0m?[32m?[1mClean Code: A Handbook of Agile Software Craftsmanship?[0m?[32m" and author "?[0m?[32m?[1mMartin, Robert?[0m?[32m" and publisher "?[0m?[32m?[1mPrentice Hall?[0m?[32m" and year "?[0m?[32m?[1m2008?[0m?[32m" and address "?[0m?[32m?[1mThe address?[0m?[32m" and edition "?[0m?[32m?[1m3?[0m?[32m" are entered?[0m ?[90m# Stepdefs.book_is_selected_and_nimi_and_kirjoittaja_and_publisher_and_julkaisuvuosi_and_julkaisijan_osoite_and_painos_are_entered(String,String,String,String,String,String,String)?[0m
+    ?[32mThen ?[0m?[32mthe reference is added and user is returned to the front page?[0m                                                                                                                                                         ?[90m# Stepdefs.the_reference_is_added_and_user_is_returned_to_the_front_page()?[0m
+Feature: User can add an inproceedings reference to the database
+
+  Scenario: user can add an inproceedings reference                                                                                                                                                                                                                                                                                                                                                                                 ?[90m# integration/addInproceedingsReference.feature:3?[0m
+    ?[32mGiven ?[0m?[32muusi viite is selected?[0m                                                                                                                                                                                                                                                                                                                                                                                                    ?[90m# Stepdefs.uusi_viite_is_selected()?[0m
+    ?[32mWhen ?[0m?[32m"?[0m?[32m?[1minproceedings?[0m?[32m" is selected and title "?[0m?[32m?[1mA practical approach to integrating active and collaborative learning into the introductory computer science curriculum?[0m?[32m" and author "?[0m?[32m?[1mGrissom, Scott?[0m?[32m" and booktitle "?[0m?[32m?[1mProceedings of the seventh annual consortium on Computing in small colleges midwestern conference?[0m?[32m" and year "?[0m?[32m?[1m2000?[0m?[32m" and pages "?[0m?[32m?[1m95-100?[0m?[32m" and publisher "?[0m?[32m?[1mConsortium for Computing Sciences in Colleges?[0m?[32m" are entered?[0m ?[90m# Stepdefs.inproceedings_is_selected_and_title_and_author_and_booktitle_and_year_and_pages_and_publisher_are_entered(String,String,String,String,String,String,String)?[0m
+    ?[32mThen ?[0m?[32mthe reference is added and user is returned to the front page?[0m                                                                                                                                                                                                                                                                                                                                                              ?[90m# Stepdefs.the_reference_is_added_and_user_is_returned_to_the_front_page()?[0m
+Feature: user can edit references in the database
+
+  Scenario: user can edit a reference                                                                        ?[90m# integration/editReference.feature:3?[0m
+    ?[32mGiven ?[0m?[32muser is in the main page and there is a reference with the title "?[0m?[32m?[1mtestireferenssi?[0m?[32m" in the database?[0m ?[90m# Stepdefs.user_is_in_the_main_page_and_there_is_a_reference_with_the_title_testireferenssi(String)?[0m
+    ?[32mWhen ?[0m?[32mbutton with the text "?[0m?[32m?[1mMuokkaa?[0m?[32m" next to the reference with the title "?[0m?[32m?[1mtestireferenssi?[0m?[32m" is pressed?[0m    ?[90m# Stepdefs.button_poista_next_to_the_testireferenssi_is_pressed(String,String)?[0m
+    ?[32mWhen ?[0m?[32mtitle "?[0m?[32m?[1mtestireferenssiEDIT?[0m?[32m" is entered in the edit-form?[0m                                             ?[90m# Stepdefs.title_is_entered_in_the_edit_form(String)?[0m
+    ?[32mThen ?[0m?[32mthere is a reference with the title "?[0m?[32m?[1mtestireferenssiEDIT?[0m?[32m" in the database?[0m                           ?[90m# Stepdefs.there_is_a_reference_with_the_title_in_the_database(String)?[0m
+Feature: user can remove a reference from the database
+
+  Scenario: user can remove a reference                                                                      ?[90m# integration/removeReference.feature:3?[0m
+    ?[32mGiven ?[0m?[32muser is in the main page and there is a reference with the title "?[0m?[32m?[1mtestireferenssi?[0m?[32m" in the database?[0m ?[90m# Stepdefs.user_is_in_the_main_page_and_there_is_a_reference_with_the_title_testireferenssi(String)?[0m
+    ?[32mWhen ?[0m?[32mbutton with the text "?[0m?[32m?[1mPoista?[0m?[32m" next to the reference with the title "?[0m?[32m?[1mtestireferenssi?[0m?[32m" is pressed?[0m     ?[90m# Stepdefs.button_poista_next_to_the_testireferenssi_is_pressed(String,String)?[0m
+    ?[32mThen ?[0m?[32mthe reference with the title "?[0m?[32m?[1mtestireferenssi?[0m?[32m" is removed?[0m                                           ?[90m# Stepdefs.the_reference_with_the_title_is_removed(String)?[0m
+
+5 Scenarios (?[32m5 passed?[0m)
+16 Steps (?[32m16 passed?[0m)
+0m32.869s
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

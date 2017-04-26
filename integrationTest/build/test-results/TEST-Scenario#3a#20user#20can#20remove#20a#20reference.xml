@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Scenario: user can remove a reference" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-04-26T07:33:01" hostname="fuxi16" time="0.812">
+  <properties/>
+  <testcase name="Given user is in the main page and there is a reference with the title &quot;testireferenssi&quot; in the database" classname="Scenario: user can remove a reference" time="0.0"/>
+  <testcase name="When button with the text &quot;Poista&quot; next to the reference with the title &quot;testireferenssi&quot; is pressed" classname="Scenario: user can remove a reference" time="0.001"/>
+  <testcase name="Then the reference with the title &quot;testireferenssi&quot; is removed" classname="Scenario: user can remove a reference" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: user can remove a reference" time="5.547"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.29.461571 (8a88bbe0775e2a23afda0ceaf2ef7ee74e822cc5) on port 30066
+Only local connections are allowed.
+]]></system-err>
+</testsuite>
