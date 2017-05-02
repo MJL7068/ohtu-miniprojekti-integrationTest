@@ -5,16 +5,17 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
-import static org.junit.Assert.*;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class Stepdefs {
 
@@ -34,12 +35,6 @@ public class Stepdefs {
         pageHasContent("Lähdeviitteet");
 
         teeTestiReferenssi(title);
-    }
-
-    @When("^button with the text \"([^\"]*)\" next to the reference with the title \"([^\"]*)\" is pressed$")
-    public void button_poista_next_to_the_testireferenssi_is_pressed(String text, String title) throws Throwable {
-        WebElement element = driver.findElement(By.id(title));
-        element.click();
     }
 
     @When("^\"([^\"]*)\" is selected and title \"([^\"]*)\" and author \"([^\"]*)\" and publisher \"([^\"]*)\" and year \"([^\"]*)\" and address \"([^\"]*)\" and edition \"([^\"]*)\" are entered$")
@@ -141,6 +136,32 @@ public class Stepdefs {
         element.click();
     }
 
+    @When("^acm data is retrieved for link \"([^\"]*)\"$")
+    public void acmDataIsRetrievedForLink(String url) throws Throwable {
+        WebElement acmInput = driver.findElement(By.cssSelector("#acm-input"));
+        acmInput.sendKeys(url);
+        driver.findElement(By.xpath("//button[contains(.,'Hae')]")).click();
+    }
+
+    @When("^title \"([^\"]*)\" is entered in the edit-form$")
+    public void titleIsEnteredInTheEditForm(String title) throws Throwable {
+        WebElement element = driver.findElement(By.cssSelector("input[name=title]"));
+        element.clear();
+        element.sendKeys(title);
+        driver.findElement(By.cssSelector("input[value=Muokkaa]")).click();
+    }
+
+    @When("^button with the text \"([^\"]*)\" next to the reference with the title \"([^\"]*)\" is pressed$")
+    public void buttonWithTheTextNextToTheReferenceWithTheTitleIsPressed(String button, String title) throws Throwable {
+        List<WebElement> refs = driver.findElements(By.cssSelector(".allReferences li"));
+        refs.stream()
+                .filter(r -> r.getText().contains("title: " + title))
+                .findFirst()
+                .get()
+                .findElement(By.cssSelector("input[value=" + button + "]"))
+                .click();
+    }
+
     @And("^value \"([^\"]*)\" is entered to a field with name \"([^\"]*)\"$")
     public void valueIsEnteredToAFieldWithName(String val, String fieldName) throws Throwable {
         WebElement field = driver.findElement(By.cssSelector("input[name=" + fieldName + "]"));
@@ -151,17 +172,6 @@ public class Stepdefs {
     @And("^edit is confirmed$")
     public void editIsConfirmed() throws Throwable {
         driver.findElement(By.cssSelector("input[value=Muokkaa]")).click();
-    }
-
-    @And("^edit button for reference titled \"([^\"]*)\" is clicked$")
-    public void editButtonForReferenceTitledIsClicked(String title) throws Throwable {
-        List<WebElement> refs = driver.findElements(By.cssSelector(".allReferences li"));
-        refs.stream()
-                .filter(r -> r.getText().contains("title: " + title))
-                .findFirst()
-                .get()
-                .findElement(By.cssSelector("input[value=Muokkaa]"))
-                .click();
     }
 
     @Then("^the reference is added and user is returned to the front page$")
@@ -181,6 +191,22 @@ public class Stepdefs {
 
     @Then("^page has reference titled \"([^\"]*)\"$")
     public void pageHasReferenceTitled(String title) throws Throwable {
+        pageHasContent("title: " + title);
+    }
+
+    @Then("^the text \"([^\"]*)\" is present in the \"([^\"]*)\" field$")
+    public void theTextIsPresentInTheField(String fieldText, String fieldName) throws Throwable {
+        By selector = By.cssSelector("input[name=" + fieldName + "]");
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until((WebDriver driver) -> (
+                driver.findElements(selector).size() > 0 &&
+                        driver.findElement(selector).getAttribute("value").length() > 0
+        ));
+        assertEquals(fieldText, driver.findElement(selector).getAttribute("value"));
+    }
+
+    @Then("^there is a reference with the title \"([^\"]*)\" in the database$")
+    public void thereIsAReferenceWithTheTitleInTheDatabase(String title) throws Throwable {
         pageHasContent("title: " + title);
     }
 
