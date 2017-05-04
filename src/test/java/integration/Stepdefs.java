@@ -241,6 +241,15 @@ public class Stepdefs {
         assertTrue(driver.getPageSource().contains(content));
     }
 
+    @Then("^then fetch status becomes \"([^\"]*)\"$")
+    public void thenFetchStatusBecomes(String status) throws Throwable {
+        By selector = By.cssSelector("input#acm-input");
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until((WebDriver driver) -> (driver.findElement(selector).getAttribute("value").length() == 0));
+        WebElement statusE = driver.findElement(By.cssSelector("span#acm-status"));
+        assertEquals(statusE.getText(), status);
+    }
+
     @After
     public void tearDown() {
         driver.navigate().to(baseUrl);
@@ -263,5 +272,4 @@ public class Stepdefs {
 
         pageHasContent("Lähdeviitteet");
     }
-
 }

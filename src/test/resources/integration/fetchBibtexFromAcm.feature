@@ -13,4 +13,4 @@ Feature: user can fetch reference info from ACM library
   Scenario: user cannot retrieve data for invalid link
     Given uusi viite is selected
     When acm data is retrieved for link ""
-    Then there is text "Virheellinen linkki" on the page
+    Then then fetch status becomes "Virheellinen linkki"
