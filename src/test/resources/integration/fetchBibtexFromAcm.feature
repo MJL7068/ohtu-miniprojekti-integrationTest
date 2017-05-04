@@ -9,3 +9,8 @@ Feature: user can fetch reference info from ACM library
     Given uusi viite is selected
     When acm data is retrieved for link "http://dl.acm.org/citation.cfm?id=2753011&CFID=756104169&CFTOKEN=88259933"
     Then the text "J. Comput. Sci. Coll." is present in the "journal" field
+
+  Scenario: user cannot retrieve data for invalid link
+    Given uusi viite is selected
+    When acm data is retrieved for link ""
+    Then there is text "Virheellinen linkki" on the page

@@ -236,6 +236,11 @@ public class Stepdefs {
                 != driver.getPageSource().lastIndexOf("pagination"));
     }
 
+    @Then("^there is text \"([^\"]*)\" on the page$")
+    public void pageHasContent(String content) {
+        assertTrue(driver.getPageSource().contains(content));
+    }
+
     @After
     public void tearDown() {
         driver.navigate().to(baseUrl);
@@ -244,10 +249,6 @@ public class Stepdefs {
             driver.findElement(selector).click();
         }
         driver.quit();
-    }
-
-    private void pageHasContent(String content) {
-        assertTrue(driver.getPageSource().contains(content));
     }
 
     private static void sleep(int n) throws Throwable {
@@ -262,4 +263,5 @@ public class Stepdefs {
 
         pageHasContent("Lähdeviitteet");
     }
+
 }
