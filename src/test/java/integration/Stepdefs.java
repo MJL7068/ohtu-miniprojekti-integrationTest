@@ -164,7 +164,7 @@ public class Stepdefs {
         WebElement element = driver.findElement(By.cssSelector("input[name=title]"));
         element.clear();
         element.sendKeys(title);
-        driver.findElement(By.cssSelector("input[value=Muokkaa]")).click();
+        driver.findElement(By.xpath("//button[contains(.,'Tallenna')]")).click();
     }
 
     @When("^button with the text \"([^\"]*)\" next to the reference with the title \"([^\"]*)\" is pressed$")
@@ -187,7 +187,7 @@ public class Stepdefs {
 
     @And("^edit is confirmed$")
     public void editIsConfirmed() throws Throwable {
-        driver.findElement(By.cssSelector("input[value=Muokkaa]")).click();
+        driver.findElement(By.xpath("//button[contains(.,'Tallenna')]")).click();
     }
 
     @Then("^the reference is added and user is returned to the front page$")
