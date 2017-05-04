@@ -37,6 +37,22 @@ public class Stepdefs {
         teeTestiReferenssi(title);
     }
 
+    @Given("^There are (\\d+) references$")
+    public void there_are_references(int numOfRef) throws Throwable {
+        driver.get(baseUrl);
+        pageHasContent("Lähdeviitteet");
+
+        for (int i = 0; i < numOfRef; i++) {
+            teeTestiReferenssi("title" + i);
+        }
+    }
+
+    @When("^user is on main page with pagination size (\\d+)$")
+    public void user_is_on_main_page_with_pagination_size(int size) throws Throwable {
+        driver.get(baseUrl + "?size=" + size);
+        pageHasContent("Lähdeviitteet");
+    }
+
     @When("^\"([^\"]*)\" is selected and title \"([^\"]*)\" and author \"([^\"]*)\" and publisher \"([^\"]*)\" and year \"([^\"]*)\" and address \"([^\"]*)\" and edition \"([^\"]*)\" are entered$")
     public void book_is_selected_and_nimi_and_kirjoittaja_and_publisher_and_julkaisuvuosi_and_julkaisijan_osoite_and_painos_are_entered(String entrytype, String title, String author, String publisher, String year, String address, String edition) throws Throwable {
         pageHasContent("Lisää uuden lähdeviitteen tiedot");
@@ -198,16 +214,26 @@ public class Stepdefs {
     public void theTextIsPresentInTheField(String fieldText, String fieldName) throws Throwable {
         By selector = By.cssSelector("input[name=" + fieldName + "]");
         WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until((WebDriver driver) -> (
-                driver.findElements(selector).size() > 0 &&
-                        driver.findElement(selector).getAttribute("value").length() > 0
-        ));
+        wait.until((WebDriver driver) -> (driver.findElements(selector).size() > 0
+                && driver.findElement(selector).getAttribute("value").length() > 0));
         assertEquals(fieldText, driver.findElement(selector).getAttribute("value"));
     }
 
     @Then("^there is a reference with the title \"([^\"]*)\" in the database$")
     public void thereIsAReferenceWithTheTitleInTheDatabase(String title) throws Throwable {
         pageHasContent("title: " + title);
+    }
+
+    @Then("^pagination is not available$")
+    public void pagination_is_not_available() throws Throwable {
+        assertTrue(!driver.getPageSource().contains("pagination"));
+    }
+
+    @Then("^pagination is available$")
+    public void pagination_is_available() throws Throwable {
+        assertTrue(driver.getPageSource().contains("pagination"));
+        assertTrue(driver.getPageSource().indexOf("pagination")
+                != driver.getPageSource().lastIndexOf("pagination"));
     }
 
     @After
